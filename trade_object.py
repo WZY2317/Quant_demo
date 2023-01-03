@@ -17,36 +17,47 @@ class TradeData:
     def calculate_trading_value(self):
         value=self.price*self.volume*self.size
         return value
-    
+    def trade_log(self,strategy_name:str):
+        text=f"{strategy_name}成交数据,self.to_str()"
+        print(text)    
     def to_str(self)->str:
         text=f"{self.symbol},{self.direction},{self.datetime},{self.volume}手@{self.price}"
         return text
 
 class StockTraceData(TradeData):
-   
-
     def calculate_cash_change(self, size: int):
         value=self.price*self.volume*size
         return value
 
-
-stock_trade=StockTraceData(
-    "60036","20200916 9:30:05","买入",40.0,100.0,1
-)
 
 class FuturesTradeData(TradeData):
      margin_rate=0.0
      def __init__(self, symbol: str, datetime: str, direction: str, price: float, volume: float, size: int,margin_rate:float) -> None:
          super().__init__(symbol, datetime, direction, price, volume, size)
          self.margin_rate=margin_rate
+     def calculate_cash_change(self, size: int):
+        value=self.price*self.volume*size
+        return value
+     def to_str(self)->str:
+        cash_change=self.calculate_cash_change(3)
+        text=f"{self.symbol},{self.direction},{self.datetime},{self.volume}手@{self.price}消耗保证金{cash_change}"
+        return text
+     def trade_log(self, strategy_name: str):
+         return super().trade_log(strategy_name)
 
-future_Trade=FuturesTradeData(
-    "TF2010","20200916","买入",4000,1,300,0.15
-)
+def print_strategy_trade_twice(trade:TradeData,strategy_name:str):
+    trade.trade_log(strategy_name)  
+    trade.trade_log(strategy_name)  
+
+# future_Trade=FuturesTradeData(
+#     "TF2010","20200916","买入",4000,1,300,0.15
+# )
+#stock_trade=StockTraceData(
+#     "60036","20200916 9:30:05","买入",40.0,100.0,1
+# )
 
 
-print(stock_trade.to_str())
-print("期货成交的现金变化为",future_Trade.calculate_trading_value())
+
 
 #isinstance 函数
 
