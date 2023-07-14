@@ -11,6 +11,6 @@ def sum_even(n):
 
 
 # sum(50)
-n = sum_even(50)
+n =sum_even(50)
 print(n)
 print("time now:", datetime.datetime.now())
