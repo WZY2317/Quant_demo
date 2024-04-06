@@ -1,0 +1,20 @@
+[package]
+name = "bitget-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tungstenite = { version = "0.21.0", features = ["native-tls"] }
+hmac = { version = "0.12.1", features = [] }
+base64 = "0.22.0"
+sha2 = { version = "0.10", default-features = false }
+hex = "0.4.3"
+chrono = { version = "0.4", features = ["serde"] }
+ordered-float = "4.2.0"
+eyre = "0.6.12"
+tokio = { version = "1.33.0", features = ["full"] }
+reqwest = "0.12.3"
+tracing = "0.1"
+uuid = "1.8.0"

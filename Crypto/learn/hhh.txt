@@ -1,0 +1,143 @@
+use base64::prelude::*;
+use hex::encode as hex_encode;
+use hmac::{Hmac, Mac};
+use sha2::Sha256;
+use tungstenite;
+pub struct ClientBitget {
+    api_key: String,
+    api_secret: String,
+    passparse: String,
+}
+impl ClientBitget {
+    pub fn new() -> ClientBitget {
+        ClientBitget {
+            api_key: String::from("bg_16133b342bfcc121556b688e670d4f45"),
+            api_secret: String::from(
+                "cab04616e4db4e431a797ffb2d65ab76fb205256cc0c9e230ac75861f68835d7",
+            ),
+            passparse: String::from("asdsa87913"),
+        }
+    }
+    pub fn login(self) {
+        let (mut client, response) =
+            tungstenite::connect("wss://ws.bitget.com/mix/v1/stream").unwrap();
+        println!("Connected to the server");
+        println!("Response HTTP code: {}", response.status());
+        println!("Response contains the following headers:");
+        println!("{:?}", response.headers());
+        let auth_msg = self.generate_login_msg();
+        println!("{auth_msg}");
+        // let auth_msg = BitgetAuth::ws_auth(options).unwrap();
+        // println!("{auth_msg}");
+        client.send(auth_msg.into()).unwrap();
+        let auth_resp = client.read().unwrap();
+        println!("{}", auth_resp);
+    }
+    pub fn generate_login_msg(self) -> String {
+        let secret_key = self.api_secret;
+        type HmacSha256 = Hmac<Sha256>;
+        let _timestamp = format!("{}", chrono::Utc::now().timestamp_millis() / 1000);
+        let method = String::from("GET");
+        let request_path = String::from("/user/verify");
+        let message = format!("{}{}{}", _timestamp, method, request_path);
+        let mut key = HmacSha256::new_from_slice(secret_key.as_bytes())
+            .expect("HMAC can take key of any size");
+        key.update(message.as_bytes());
+        let signature = BASE64_STANDARD.encode(key.finalize().into_bytes());
+        let api_key = self.api_key;
+        let _passphrase = self.passparse;
+        let msg = format!(
+            r#"{{"op": "login","args": [{{"api_key": "{key}","passphrase": "{passphrase}","timestamp": "{timestamp}","sign": "{signature}"}}]}}"#,
+            key = api_key,
+            passphrase = _passphrase,
+            timestamp = _timestamp,
+            signature = signature
+        );
+        msg
+    }
+}
+jsonwebtoken = "9.3.0"
+tungstenite = { version = "0.21.0", features = ["native-tls"] }
+log = { version = "0.4.20", optional = true }
+base64 = "0.22.0"
+env_logger = { version = "0.11.3", features = [] }
+reqwest = { version = "0.12.2", features = ["json"] }
+serde_json = { version = "1.0", features = ["arbitrary_precision"] }
+anyhow = { version = "1", features = ["backtrace"] }
+chrono = { version = "0.4", features = ["serde"] }
+hmac = { version = "0.12.1", features = [] }
+sha2 = { version = "0.10", default-features = false }
+encoding_rs = "0.8.33"
+hex = "0.4.3"
+def _request(self, method, request_path, params, cursor=False):
+        if method == c.GET:
+            request_path = request_path + utils.parse_params_to_str(params)
+        # url
+        url = c.API_URL + request_path
+
+        # 获取本地时间
+        timestamp = utils.get_timestamp()
+
+        # sign & header
+        if self.use_server_time:
+            # 获取服务器时间接口
+            timestamp = self._get_timestamp()
+
+        body = json.dumps(params) if method == c.POST else ""
+        sign = utils.sign(utils.pre_hash(timestamp, method, request_path, str(body)), self.API_SECRET_KEY)
+        if c.SIGN_TYPE == c.RSA:
+            sign = utils.signByRSA(utils.pre_hash(timestamp, method, request_path, str(body)), self.API_SECRET_KEY)
+        header = utils.get_header(self.API_KEY, sign, timestamp, self.PASSPHRASE)
+
+        if self.first:
+            print("url:", url)
+            print("method:", method)
+            print("body:", body)
+            print("headers:", header)
+            # print("sign:", sign)
+            self.first = False
+
+
+
+
+        # send request
+        response = None
+        if method == c.GET:
+            response = requests.get(url, headers=header)
+            print("response : ",response.text)
+        elif method == c.POST:
+            response = requests.post(url, data=body, headers=header)
+            print("response : ",response.text)
+            #response = requests.post(url, json=body, headers=header)
+        elif method == c.DELETE:
+            response = requests.delete(url, headers=header)
+
+        print("status:", response.status_code)
+        # exception handle
+        if not str(response.status_code).startswith('2'):
+            raise exceptions.BitgetAPIException(response)
+        try:
+            res_header = response.headers
+            if cursor:
+                r = dict()
+                try:
+                    r['before'] = res_header['OK-BEFORE']
+                    r['after'] = res_header['OK-AFTER']
+                except:
+                    pass
+                return response.json(), r
+            else:
+                return response.json()
+
+        except ValueError:
+            raise exceptions.BitgetRequestException('Invalid Response: %s' % response.text)
+def get_header(api_key, sign, timestamp, passphrase):
+    header = dict()
+    header[c.CONTENT_TYPE] = c.APPLICATION_JSON
+    header[c.OK_ACCESS_KEY] = api_key
+    header[c.OK_ACCESS_SIGN] = sign
+    header[c.OK_ACCESS_TIMESTAMP] = str(timestamp)
+    header[c.OK_ACCESS_PASSPHRASE] = passphrase
+    header[c.LOCALE] = 'zh-CN'
+
+    return header

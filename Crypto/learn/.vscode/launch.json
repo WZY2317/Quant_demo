@@ -1,0 +1,13 @@
+{
+    "type": "lldb",
+    "request": "launch",
+    "name": "Cargo launch",
+    "cargo": {
+        "args": [
+            "build",
+            "--lib"
+        ]
+    },
+    "program": "${cargo:program}",
+    "args": []
+}

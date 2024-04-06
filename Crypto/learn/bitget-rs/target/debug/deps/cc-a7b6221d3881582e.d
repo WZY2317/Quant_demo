@@ -1,0 +1,11 @@
+/home/ec2-user/mywork/Work_quant/learn/bitget-rs/target/debug/deps/libcc-a7b6221d3881582e.rmeta: /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/lib.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/find_tools.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/command_helpers.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/tool.rs
+
+/home/ec2-user/mywork/Work_quant/learn/bitget-rs/target/debug/deps/libcc-a7b6221d3881582e.rlib: /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/lib.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/find_tools.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/command_helpers.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/tool.rs
+
+/home/ec2-user/mywork/Work_quant/learn/bitget-rs/target/debug/deps/cc-a7b6221d3881582e.d: /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/lib.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/find_tools.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/command_helpers.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/tool.rs
+
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/lib.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/mod.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/windows/find_tools.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/command_helpers.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.90/src/tool.rs:

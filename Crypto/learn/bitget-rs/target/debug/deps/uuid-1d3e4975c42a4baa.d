@@ -1,0 +1,12 @@
+/home/ec2-user/mywork/Work_quant/learn/bitget-rs/target/debug/deps/libuuid-1d3e4975c42a4baa.rmeta: /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/lib.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/prelude.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/adapter/mod.rs
+
+/home/ec2-user/mywork/Work_quant/learn/bitget-rs/target/debug/deps/uuid-1d3e4975c42a4baa.d: /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/lib.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/mod.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/error.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/prelude.rs /home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/adapter/mod.rs
+
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/lib.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/mod.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/builder/error.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/error.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/mod.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/parser/error.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/prelude.rs:
+/home/ec2-user/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-0.8.2/src/adapter/mod.rs:
